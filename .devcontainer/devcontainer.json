@@ -3,12 +3,6 @@
   "dockerComposeFile": "../docker-compose.yml",
   "service": "dev",
   "workspaceFolder": "/workspace",
-  "remoteUser": "node",
-  "updateRemoteUserUID": true,
-  "runServices": [
-    "frontend",
-    "backend"
-  ],
   "shutdownAction": "stopCompose",
   "customizations": {
     "vscode": {
@@ -19,7 +13,12 @@
         "ms-python.vscode-pylance",
         "bradlc.vscode-tailwindcss",
         "ms-azuretools.vscode-docker"
-      ]
+      ],
+
+      "settings": {
+        "python.defaultInterpreterPath": "/workspace/backend/.venv/bin/python",
+        "typescript.tsdk": "/workspace/frontend/node_modules/typescript/lib"
+      }
     }
   }
 }
