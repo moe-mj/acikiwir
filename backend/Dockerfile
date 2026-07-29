@@ -10,4 +10,6 @@ RUN uv sync --frozen
 
 COPY . .
 
+RUN uv sync --frozen
+
 EXPOSE 8000
