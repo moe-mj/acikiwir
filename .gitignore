@@ -191,3 +191,41 @@ thumb
 sketch
 
 # End of https://www.toptal.com/developers/gitignore/api/react,python
+
+# Python / General
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+ENV/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Datasets
+data/
+*.csv
+*.parquet
+*.json
+*.feather
+
+# Saved Models / XGBoost outputs
+*.json
+*.ubj
+*.model
+*.pkl
+*.joblib
+models/
+
+# Logs and outputs
+logs/
+wandb/
+mlruns/
+.trash/
+
+# IDEs
+.vscode/
+.swift
+.idea/
