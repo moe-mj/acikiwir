@@ -29,6 +29,9 @@ services:
       - ./backend:/workspace/backend
       - backend_venv:/workspace/backend/.venv
 
+    env_file:
+      - ./backend/.env
+
     ports:
       - "8000:8000"
 
