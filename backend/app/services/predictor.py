@@ -21,13 +21,9 @@ from app.schemas.prediction import (
 )
 from app.services.preprocessing import build_numeric_features
 
+GEMINI_MODEL = "gemini-1.5-flash"
 
-
-api_key = os.environ.get("GEMINI_API_KEY")
-client = genai.Client(api_key=api_key) if api_key else None
-GEMINI_MODEL = "gemini-3.5-flash"
-
-MODEL_PATH = Path("app/models/model_bundle.joblib")
+MODEL_PATH = Path("app/model/model_bundle.joblib")
 CSV_PATH = Path("data/synthetic_data.csv")
 
 def additional_features(df: pd.DataFrame) -> pd.DataFrame:
@@ -94,6 +90,11 @@ class Predictor:
         else:
             self.preprocessor = self.bundle["preprocessor"]
             xgb_model = self.model
+
+        try:
+            xgb_model.set_params(device="cpu", tree_method="hist")
+        except Exception:
+            pass
 
         self.explainer = shap.TreeExplainer(
             xgb_model
@@ -337,10 +338,11 @@ class Predictor:
         return results
 
     def _generate_llm_explanation(self, risk_score: float, status: str, top_features: list[dict]) -> str:
-        if client is None:
-            raise RuntimeError(
-                "GEMINI_API_KEY tidak ditemukan."
-            )
+        api_key = os.environ.get("GEMINI_API_KEY")
+        if not api_key:
+            raise RuntimeError("GEMINI_API_KEY tidak ditemukan di environment.")
+        
+        client = genai.Client(api_key=api_key)
         reasons = []
         for row in top_features:
             description = (
