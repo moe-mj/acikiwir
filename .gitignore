@@ -204,21 +204,6 @@ ENV/
 # Jupyter Notebooks
 .ipynb_checkpoints
 
-# Datasets
-data/
-*.csv
-*.parquet
-*.json
-*.feather
-
-# Saved Models / XGBoost outputs
-*.json
-*.ubj
-*.model
-*.pkl
-*.joblib
-models/
-
 # Logs and outputs
 logs/
 wandb/

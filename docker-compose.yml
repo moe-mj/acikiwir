@@ -51,8 +51,6 @@ services:
 
     working_dir: /workspace
 
-    gpus: all
-    
     command:
       sleep infinity
 
