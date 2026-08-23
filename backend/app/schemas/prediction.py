@@ -11,12 +11,19 @@ class AnomalyCategory(BaseModel):
     top_features: list[str]
 
 
+class RiskThresholds(BaseModel):
+    warning: float
+    high: float
+
+
 class PredictionResponse(BaseModel):
     id: int
     store_name: str
 
     risk_score: float
     status: str
+
+    thresholds: RiskThresholds
 
     price_anomaly: AnomalyCategory
     review_anomaly: AnomalyCategory

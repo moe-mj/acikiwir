@@ -21,7 +21,7 @@ from app.schemas.prediction import (
 )
 from app.services.preprocessing import build_numeric_features
 
-GEMINI_MODEL = "gemini-1.5-flash"
+GEMINI_MODEL = "gemini-3.5-flash"
 
 MODEL_PATH = Path("app/model/model_bundle.joblib")
 CSV_PATH = Path("data/synthetic_data.csv")
@@ -578,7 +578,13 @@ class Predictor:
                 risk_score,
                 2,
             ),
+
             status=status,
+
+            thresholds={
+                "warning": round(warning_threshold * 100, 2),
+                "high": round(high_threshold * 100, 2),
+            },
 
             price_anomaly=categories["price"],
             review_anomaly=categories["review"],
