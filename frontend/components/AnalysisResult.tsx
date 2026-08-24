@@ -182,7 +182,7 @@ export function AnalysisResult({
 
   return (
     <section className="mx-auto max-w-[1400px] px-5 py-10 lg:px-8">
-      <h1 className="mb-8 text-3xl font-extrabold text-slate-900">
+      <h1 className="mb-8 text-3xl font-extrabold text-slate-900 dark:text-white">
         Hasil Analisis Toko
       </h1>
 
