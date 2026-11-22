@@ -23,8 +23,10 @@ from app.services.preprocessing import build_numeric_features
 
 GEMINI_MODEL = "gemini-3.5-flash"
 
-MODEL_PATH = Path("app/model/model_bundle.joblib")
-CSV_PATH = Path("data/synthetic_data.csv")
+# Resolve paths from the backend folder so the app works from any working directory.
+BACKEND_DIR = Path(__file__).resolve().parents[2]
+MODEL_PATH = BACKEND_DIR / "app" / "model" / "model_bundle.joblib"
+CSV_PATH = BACKEND_DIR / "data" / "synthetic_data.csv"
 
 def additional_features(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()

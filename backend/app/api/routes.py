@@ -1,18 +1,13 @@
-from pathlib import Path
-
 from fastapi import APIRouter, HTTPException
 
 from app.schemas.prediction import (
     PredictionRequest,
     PredictionResponse,
 )
-from app.services.predictor import Predictor
+from app.services.predictor import CSV_PATH, MODEL_PATH, Predictor
 
 
 router = APIRouter(prefix="/api")
-
-MODEL_PATH = Path("app/model/model_bundle.joblib")
-CSV_PATH = Path("data/synthetic_data.csv")
 
 predictor = Predictor(model_path=MODEL_PATH,csv_path=CSV_PATH)
 
