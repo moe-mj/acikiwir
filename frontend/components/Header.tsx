@@ -9,7 +9,7 @@ export function Header() {
   const { isDark, toggleDarkMode } = useDarkMode()
 
   return (
-    <header className="bg-red-500 dark:bg-blue-500">
+    <header className="border-b border-[#EBEDF1] bg-white transition-colors duration-200 dark:border-slate-800 dark:bg-slate-900">
       <div className="mx-auto flex h-[72px] max-w-[1500px] items-center justify-between px-5 lg:px-8">
         <div className="flex items-center gap-10">
           <Logo />

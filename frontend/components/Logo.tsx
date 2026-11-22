@@ -6,8 +6,8 @@ type LogoProps = {
 export function Logo({ tone = 'light', size = 'sm' }: LogoProps) {
   const mark = size === 'sm' ? 'h-10 w-10' : 'h-12 w-12'
   const text = size === 'sm' ? 'text-2xl' : 'text-3xl'
-  const trust = tone === 'light' ? 'text-navy' : 'text-white'
-  const shield = tone === 'light' ? '#071B31' : '#FFFFFF'
+  const trust = tone === 'light' ? 'text-navy dark:text-white' : 'text-white'
+  const shield = tone === 'light' ? 'stroke-navy dark:stroke-white' : 'stroke-white'
 
   return (
     <a href="#beranda" className="flex items-center gap-2" aria-label="TrustPed beranda">
@@ -20,7 +20,7 @@ export function Logo({ tone = 'light', size = 'sm' }: LogoProps) {
       >
         <path
           d="M24 4 8 10v13c0 10 6.8 18.6 16 21 9.2-2.4 16-11 16-21V10L24 4Z"
-          stroke={shield}
+          className={shield}
           strokeWidth="3"
           strokeLinejoin="round"
         />
@@ -28,7 +28,7 @@ export function Logo({ tone = 'light', size = 'sm' }: LogoProps) {
         <path d="m26.5 24.5 4.5 4.5" stroke="#42B549" strokeWidth="3" strokeLinecap="round" />
         <path
           d="M15 27h13l-1.6 6H17l-2-6Z"
-          stroke={shield}
+          className={shield}
           strokeWidth="2.4"
           strokeLinejoin="round"
         />
