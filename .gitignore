@@ -214,3 +214,6 @@ mlruns/
 .vscode/
 .swift
 .idea/
+.vercel
+.env*
+!.env.example
