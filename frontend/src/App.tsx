@@ -8,7 +8,11 @@ import {
   type AnalysisData,
 } from "../components/AnalysisResult";
 
-const API_BASE_URL = "http://localhost:8000";
+// In production the API is served from the same origin under /api.
+// Set VITE_API_BASE_URL to point at a different backend if needed.
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ??
+  (import.meta.env.DEV ? "http://localhost:8000" : "");
 
 interface AnomalyData {
   score: number;
